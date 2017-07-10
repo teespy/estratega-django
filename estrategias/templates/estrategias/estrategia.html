@@ -1,0 +1,5 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'estrategias/style.css' %}" />
+
+<a href="{% url 'estrategias:detail' estrategia.id %}">{{ estrategia.titulo }}</a>
