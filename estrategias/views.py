@@ -1,24 +1,19 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
-from django.template import loader
+from django.shortcuts import render
 from django.views import generic
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Estrategia
 
 
-# index view (http://site/)
 def index(request):
     return render(request, 'estratega/index.html', {})
 
 
-# the first view after login
-class MisEstrategiasView(generic.ListView):
+class MisEstrategiasView(LoginRequiredMixin, generic.ListView):
     model = Estrategia
     template_name='estrategias/mis_estrategias.html'
+    context_object_name = 'estrategias'
 
-
-# the first view when user clicks on a strategy
-class EstrategiaView(generic.DetailView):
-    model = Estrategia
-    template_name = 'estrategias/estrategia.html'
-
+    def get_queryset(self):
+        qs = super(MisEstrategiasView, self).get_queryset()
+        return qs.filter(dueno=self.request.user)

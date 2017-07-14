@@ -23,4 +23,3 @@ urlpatterns = [
     url(r'^estrategias/', include('estrategias.urls', namespace='estrategias')),
     url(r'^admin/', include(admin.site.urls)),
 ]
-

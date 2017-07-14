@@ -1,13 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import User
+
+# Create your models here.
 
 
 class Estrategia(models.Model):
-    nombre = models.CharField(max_length=200, default='')
-    dueno = models.ForeignKey(User, null=True)
+    titulo = models.CharField(max_length=1000)
 
     def __str__(self):
-        return self.nombre
+        return self.titulo
 
 
 class Problematica(models.Model):
@@ -73,3 +73,4 @@ class ActorRelevante(models.Model):
 
     def __str__(self):
         return self.nombre
+

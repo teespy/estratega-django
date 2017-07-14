@@ -1,0 +1,10 @@
+.navbar-default, .menu {
+    background-color: #021b2d;
+    border-color: #021b2d;
+    border-radius: 0px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
