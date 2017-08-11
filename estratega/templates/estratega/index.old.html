@@ -1,0 +1,117 @@
+{% extends "base_generic.html" %} 
+
+{% load staticfiles %}
+
+{% block navbar %}
+    {% include "navbar.html" with navhighlighted="inicio" %}
+{% endblock %}
+
+
+{% block content %}
+<section id="hero">
+    <div class="container">
+        <h1 class="text-width text-center text-white"><span>Reduce los riesgos y aumenta el desempeño de tu equipo al momento de incidir en políticas públicas</span></h1>
+    </div>
+</section>
+
+<section id="preguntas">
+    <div class="container text-center text-width">
+        <h3 class="text-white">¿Tienes objetivos de acción claros pero no logras cumplirlos?</h3>
+        <h3 class="text-white">¿No logran conectar con los actores sociales con los que te deberías relacionar?</h3>
+        <h3 class="text-white">¿Tu presupuesto organizacional es escaso y necesitas optimizarlo de la mejor manera?</h3>
+        <h3 class="text-white">¿Existe alta rotación en los miembros de tu organización?</h3>
+        <h3 class="text-white">¿Tus flujos de comunicación interna y externa trabajan en función de tu meta institucional?</h3>
+    </div>
+</section>
+
+<section class="metodologia" id="metodologia-index">
+    <div class="container">
+        <h2 class="text-white text-center">Metodología</h2>
+        <div class="row">
+            <div class="col-md-2 text-center arrow"><img class="" alt="Caracterizar el problema público" src="{% static 'images/m02.svg' %}" />
+                <p class="text-white">Caracterizar el problema público</p>
+            </div>
+            <div class="col-md-2 text-center arrow"><img class="" alt="Definir objetivos" src="{% static 'images/m03.svg' %}" />
+                <p class="text-white">Definir objetivos</p>
+            </div>
+            <div class="col-md-2 text-center arrow"><img class="" alt="Analizar factores externos" src="{% static 'images/m04.svg' %}" />
+                <p class="text-white">Analizar factores externos</p>
+            </div>
+            <div class="col-md-2 text-center arrow"><img class="" alt="Definir resultados intermedios" src="{% static 'images/m05.svg' %}" />
+                <p class="text-white">Definir resultados intermedios</p>
+            </div>
+            <div class="col-md-2 text-center arrow"><img class="" alt="Planificar peticiones" src="{% static 'images/m06.svg' %}" />
+                <p class="text-white">Planificar peticiones</p>
+            </div>
+            <div class="col-md-2 text-center arrow"><img class="" alt="Evaluación monitoreo" src="{% static 'images/m07.svg' %}" />
+                <p class="text-white">Evaluación monitoreo</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonial" id="testimonios">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Testimonios</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <img class="img-circle" src="{% static 'images/t6.png' %}" alt="T6" />
+                <p class="cita text-center">me ha servido para identificar y ponderar todos los factores que influyen en el éxito</p>
+                <p>Estratega me ha servido para identificar y ponderar todos los factores que influyen en el éxito de una planificación
+                    de incidencia teniendo muy claro qué es lo que se quiere conseguir. Esto nos ha permitido planificar
+                    con el nivel de detalle y orden cronológico que requiere el logro de cada uno de nuestros objetivos
+                </p>
+                <p class="persona">Danae Fuentes, Encargada de Incidencia en Políticas Públicas Hogar de Cristo</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <img class="img-circle" src="{% static 'images/t4.png' %}" alt="T4" />
+                <p class="cita text-center">fue el comienzo para abordar el tema de incidencia de forma profesional y con sentido</p>
+                <p class="">Estratega fue el comienzo para abordar el tema de incidencia de forma profesional y con sentido. Con Estratega
+                    nos encontramos, no solo con un equipo de profesionales que nos orientaron hacia dónde apuntar con nuestro
+                    trabajo, sino con personas convencidas de que el trabajo entre la sociedad civil es posible</p>
+                <p class="persona">José Manuel Tapia, Coordinador de Extensión CIS TECHO - Chile</p>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <img class="img-circle" src="{% static 'images/t5.jpg' %}" alt="T5" />
+                <p class="cita text-center">nos ha permitido priorizar los objetivos y distribuir los esfuerzos de la organización</p>
+                <p class="">Con Estratega he observado cómo intenciones se traducen en objetivos de política pública definidos y concretos,
+                    con indicadores de éxito y un itinerario de acciones claro que orienta la acción de incidencia. Esto
+                    nos ha permitido priorizar los objetivos y distribuir los esfuerzos de la organización</p>
+                <p class="persona">Octavio Del Favero, Coordinador Legislativo Fundación Ciudadano Inteligente</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="organizations" id="usanestratega">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-white">Usan Estratega</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <a href="//www.techo.org/paises/chile/" target="_blank"><img class="logos" alt="Logo TECHO" src="{% static 'images/logo-techo.svg' %}" data-pin-nopin="true"></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <a href="//www.hogardecristo.cl/" target="_blank"><img class="logos" alt="Logo Hogar de Cristo" src="{% static 'images/logo-hogar.svg' %}" data-pin-nopin="true"></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <a href="//ciudadanointeligente.org/" target="_blank"><img class="logos" alt="Logo Fundación Ciudadano Inteligente" src="{% static 'images/logo-fci.svg' %}" data-pin-nopin="true"></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <a href="//bordepolitico.com/" target="_blank"><img class="logos" src="{% static 'images/logo-borde.svg' %}" alt="Logo Borde Político"></a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
+                <a href="//espaciosabiertos.org/" target="_blank"><img class="logos" src="{% static 'images/espacios-abiertos.svg' %}" alt="Logo Espacios Abiertos"></a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

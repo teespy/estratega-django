@@ -182,9 +182,10 @@ table .fa-pencil-square-o, table .fa-trash, table .fa-line-chart, table .fa-cale
   padding: 20px;
 }
 
-label {
+/*label {
     font-weight: 400;
-}
+}*/
+
 .radio label, .checkbox label {
     font-weight: 400;
 }
@@ -732,8 +733,8 @@ table.indicator td:first-child {
 
 /*Project*/
 
-.metodologia {
-  //background: #7BC8CA;
+/*.metodologia {
+  background: #7BC8CA;
   padding: 30px 0 30px;
   position: relative;
 }
@@ -807,7 +808,7 @@ table.indicator td:first-child {
 
 .cajaproyecto .panel-heading a {
   color: white;
-}
+}*/
 
 .project-hero {
     margin: -1px -0px 30px -0px;
@@ -1067,20 +1068,20 @@ table.document td .btn {
 
 /*Section metodología*/
 
-#metodologia {
+.metodologia {
   background: #7BC8CA;
-  padding: 30px 0 90px;
+  /*padding: 30px 0 90px;*/
   position: relative;
 }
 
-#metodologia .arrow:after {
+.metodologia .arrow:after {
   content: url("../images/arrow-right.svg");
   position: absolute;
   right: -10px;
   top: 20px;
 }
 
-#metodologia .arrow:last-child:after {
+.metodologia .arrow:last-child:after {
   content: none;
 }
 
@@ -1108,7 +1109,7 @@ table.document td .btn {
     width: 40%;
   }
 
-  #metodologia .arrow:after{
+  .metodologia .arrow:after{
    display: none;
   }
 }
@@ -1146,16 +1147,5 @@ table.document td .btn {
   }
   .testimonial p.persona{
     margin: 0 0 25px 0;
-  }
-}
-
-.aside-form {
-  label {
-    padding-right: 40px;
-    text-align: center;
-    input {
-      width: 15px;
-      box-shadow: none;
-    }
   }
 }

@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block navbar %}
+    {% include "navbar.html" with navhighlighted="nueva_estrategia" %} 
+{% endblock %} 
+
+{% block content %}
+<section id="nuevaestrategia">
+    <div class="container">
+        <h2 class="text-center titulotop">Crea una nueva Estrategia</h2>
+        {% include 'estrategias/forms/nueva_estrategia.html' %}
+        <div class="col-md-12 spacer15"></div>
+    </div>
+</section>
+{% endblock %}

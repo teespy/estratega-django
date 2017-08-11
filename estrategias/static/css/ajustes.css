@@ -8,3 +8,84 @@ img {
     display: block;
     margin: 0 auto;
 }
+
+.titulotop {
+    padding-top: 50px;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.asteriskField {
+    display: none;
+}
+
+.boton-avance {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.boton-login {
+    background: transparent;
+    border-color: white;
+    color: white;
+}
+
+.caret {
+    display: none;
+}
+
+.form-estrategia div label {
+    font-size: 20px;
+}
+
+#metodologia-index {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+#info-metodologia {
+    padding-top: 30px;
+}
+
+
+#listaestrategias {
+    background: #E75663;
+}
+
+.item-listado-estrategia {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.item-listado-estrategia .ile-titulo a {
+    color: white !important;
+}
+
+.item-listado-estrategia .ile-compartir {
+    font-size: 20px !important;
+}
+
+.item-listado-estrategia .ile-borrar {
+    font-size: 20px !important;
+}
+
+.spacer15 {
+    height: 15px;
+}
+
+.spacer20 {
+    height: 20px;
+}
+
+.spacer25 {
+    height: 25px;
+}
+
+.spacer30 {
+    height: 15px;
+}

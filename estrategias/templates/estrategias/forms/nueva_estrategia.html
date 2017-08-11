@@ -1,0 +1,16 @@
+<!-- Formulario Nueva Estrategia -->
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form action="{% url "estrategias:nueva_estrategia" %}" method="post" accept-charset="utf-8">
+            {% load crispy_forms_tags %}
+            {{ form | crispy }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <div class="text-right">
+                <input class="btn btn-default" type="submit" value="Comenzar!">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row spacer15"></div>

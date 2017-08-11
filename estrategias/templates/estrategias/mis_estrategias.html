@@ -1,0 +1,37 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block navbar %}
+    {% include "navbar.html" with navhighlighted="mis_estrategias" %} 
+{% endblock %} 
+
+{% block content %}
+<section id="listaestrategias">
+    <div class="container">
+        <h2 class="text-white text-center titulotop">Mis Estrategias</h2>
+        {% if estrategias.count == 0 %}
+        <div class="row item-listado-estrategia">
+            <div class="col-sm-12 text-center">
+                ¡Aún no has creado ninguna estrategia!
+            </div>
+        </div>
+        {% endif %} {% for estrategia in estrategias %}
+        <div class="row item-listado-estrategia">
+            <div class="col-sm-1 ile-img">
+                <img src="{% static 'images/logotrans.png' %}" alt="Logo" />
+            </div>
+            <div class="col-sm-7 ile-titulo">
+                <a href="/estrategias/{{estrategia.id}}">{{estrategia.titulo}}</a>
+            </div>
+            <div class="col-sm-2 ile-compartir">
+                Compartir
+            </div>
+            <div class="col-sm-2 ile-borrar">
+                Borrar
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

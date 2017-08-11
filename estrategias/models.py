@@ -3,11 +3,11 @@ from django.contrib.auth.models import User
 
 
 class Estrategia(models.Model):
-    nombre = models.CharField(max_length=200, default='')
+    titulo = models.CharField(max_length=200, default='')
     dueno = models.ForeignKey(User, null=True)
 
     def __str__(self):
-        return self.nombre
+        return self.titulo
 
 
 class Problematica(models.Model):

@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% load staticfiles %}
+
+{% block navbar %}
+    {% include "navbar.html" with navhighlighted="mis_estrategias" %} 
+{% endblock %} 
+
+{% block content %}
+<section id="nuevaestrategia">
+    <div class="container">
+        <h2 class="text-center titulotop">
+Hola!<br/><br/>
+Por favor dime quien eres
+        </h2>
+        {% include 'estrategias/forms/login.html' %}
+    </div>
+</section>
+{% endblock %}

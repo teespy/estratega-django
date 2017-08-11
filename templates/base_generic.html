@@ -1,0 +1,71 @@
+<!-- https://docs.djangoproject.com/en/dev/ref/templates/language/ -->
+
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% block head %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estratega, una herramienta de advocacy">
+
+    <title>Estratega</title>
+
+    <!--<script src="https://use.fontawesome.com/07d6cf7672.js"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+
+    {% bootstrap_css %}
+    <link rel="stylesheet" media="all" href="{% static 'css/style-orig.css' %}" data-turbolinks-track="true" />
+    <link rel="stylesheet" media="all" href="{% static 'css/ajustes.css' %}" data-turbolinks-track="true" />
+    {% endblock %}
+</head>
+
+<body class="base">
+    <header>
+        {% block navbar %}
+
+        {% endblock %}
+    </header>
+
+    <div role="main" class="FullPage">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    {% block footer %}
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:info@ciudadanointeligente.org?Subject=Estratega" class="email-prensa" target="_top"
+                                onclick="ga('send', 'event', 'footer-email', 'click');"><i class="fa fa-envelope-o" aria-hidden="true"></i> Mándanos un correo</a></li>
+                        <li><a href="//github.com/ciudadanointeligente" target="_blank" onclick="ga('send', 'event', 'footer-github', 'click');"><i class="fa fa-github-alt" aria-hidden="true"></i> Revisa nuestro código</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <ul class="list-unstyled">
+                        <li>Un proyecto de</li>
+                        <li><a href="//ciudadanointeligente.org" target="_blank" onclick="ga('send', 'event', 'footer-logo-fci', 'click');"><img src="{% static 'images/logo-ciudadanoi-parafondooscuro.png' %}" title="Fundación Ciudadano Inteligente" data-pin-nopin="true"></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-unstyled pull-right">
+                        <li><a href="//twitter.com/ciudadanoi" onclick="ga('send', 'event', 'footer-twitter', 'click');" target="blank"><i class="fa fa-twitter" aria-hidden="true"></i> @Ciudadanoi</a></li>
+                        <li><a href="//www.facebook.com/ciudadanointeligente" onclick="ga('send', 'event', 'footer-facebook', 'click');"
+                                target="blank"><i class="fa  fa-facebook" aria-hidden="true"></i> Ciudadano Inteligente</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+</body>
+
+</html>

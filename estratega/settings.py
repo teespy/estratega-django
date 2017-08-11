@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'test_without_migrations',
     'django_nose',
+    'crispy_forms',
     'estrategias'
 )
 
@@ -59,7 +60,10 @@ ROOT_URLCONF = 'estratega.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates/'),
+            os.path.join(BASE_DIR, 'estratega/templates/')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -88,6 +92,9 @@ DATABASES = {
     }
 }
 
+
+# Crispy Forms
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

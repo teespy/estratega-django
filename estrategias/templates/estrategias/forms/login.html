@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <form action="{% url "login" %}" method="post" accept-charset="utf-8">
+            {% load crispy_forms_tags %}
+            {{ form | crispy }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}">
+            <div class="text-right">
+                <input class="btn btn-default" type="submit" value="Ingresar">
+                <div class="row spacer15"></div>
+                <p>¿No tienes cuenta en Estratega? <a href="/estrategias/crear_cuenta">Crea una acá</a>
+                <p>¿Olvidaste tu contraseña? <a href="/estrategias/crear_cuenta">Cámbiala</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row spacer15"></div>
