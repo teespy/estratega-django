@@ -48,7 +48,7 @@ class EstrategiaTituloForm(forms.ModelForm):
         self.helper.layout = Layout(
                                 Field('titulo', css_class='input-xlarge'),
                                 FormActions(
-                                    Submit('save_changes', 'Comenzar!', css_class="btn-primary"), css_class="boton-avance"
+                                    Submit('save_changes', 'Comenzar!', css_class="btn-primary"), css_class="text-center p-vrt-20"
                                 )
         )  
 
