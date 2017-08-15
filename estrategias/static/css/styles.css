@@ -31,9 +31,8 @@ h1 {
 }
 
 h2 {
-  font-size: 46px;
+  font-size: 34px;
   font-weight: 300;
-  margin: 40px 0 80px;
 }
 
 h3 {
@@ -60,24 +59,24 @@ input, button, select, textarea {
 
 .btn-default {
     border-radius: 15px;
-    background-color: #0091ea;
-    border-color: #0091ea;
+    background-color: #0276BD;
+    border-color: #0276BD;
     color: #ffffff;
     text-transform: none;
 }
 
 .btn-default:hover, .btn-primary:hover {
     border-radius: 15px;
-    background-color: #06649D;
-    border-color: #06649D;
+    background-color: #0554AD;
+    border-color: #0554AD;
     color: #ffffff;
     text-transform: none;
 }
 
 .btn-default:active:hover, .btn-default:active:focus, .btn-default:active.focus, .btn-default.active:hover, .btn-default.active:focus, .btn-default.active.focus, .open>.btn-default.dropdown-toggle:hover, .open>.btn-default.dropdown-toggle:focus, .open>.btn-default.dropdown-toggle.focus {
     color: #ffffff;
-    background-color: #06649D;
-    border-color: #06649D;
+    background-color: #0554AD;
+    border-color: #0554AD;
 }
 
 
@@ -116,7 +115,11 @@ input, button, select, textarea {
 }
 
 .spacer30 {
-    height: 15px;
+    height: 30px;
+}
+
+.spacer60 {
+    height: 60px;
 }
 
 .nopadding {
@@ -141,6 +144,7 @@ input, button, select, textarea {
 
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
     color: #FFFFFF;
+    background-color: #0276BD !important;
     text-decoration: underline;
 }
 
@@ -251,17 +255,16 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 #section-index-preguntas:before {
   content: url("../images/illustration01.svg");
   position: absolute;
-  bottom: 180px;
+  top: 180px;
   left: 0;
 }
 
 #section-index-preguntas:after {
   content: url("../images/illustration02.svg");
   position: absolute;
-  bottom: 180px;
+  top: 180px;
   right: 0;
 }
-
 
 #section-index-preguntas h3 {
   background: url("../images/oval.svg") no-repeat bottom;
@@ -285,8 +288,6 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 
 .metodologia {
   background: #7BC8CA;
-  /*padding: 30px 0 90px;*/
-  position: relative;
 }
 
 .metodologia .arrow:after {
@@ -298,6 +299,24 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 
 .metodologia .arrow:last-child:after {
   content: none;
+}
+
+.row-metodologia {
+  padding-top: 50px;
+}
+
+
+/* Section Specific (section-metodologia-metodologia) */
+
+#section-metodologia-metodologia {
+  padding-top: 150px;
+}
+
+
+/* Section Specific (section-metodologia-info) */
+
+#section-metodologia-info h3 {
+  font-weight: 500;
 }
 
 
@@ -344,16 +363,53 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 }
 
 
-/* Section Specific (organizations) */
+/* Section Specific (section-usan-estratega) */
 
-.organizations {
-  padding: 100px 0;
+#section-index-usan-estratega {
+  padding: 100px 0 100px 0px;;
   text-align: center;
   background-color: #7BC8CA;
 }
 
-.col-md-12.logos{
+#section-index-usan-estratega .logos {
   position: relative;
+}
+
+#row-logos {
+  padding-top: 50px;
+}
+
+/* Section Specific (section-login) */
+
+#section-login {
+  padding-top: 150px;
+}
+
+#section-login h1 {
+  margin: 0 auto;
+}
+
+#section-login h2 {
+  margin: 10px 0px 30px 0px;
+}
+
+
+/* Section Specific (section-nueva-estrategia) */
+
+#section-nueva-estrategia {
+  padding-top: 150px;
+}
+
+#section-nueva-estrategia h1 {
+  margin: 0 auto;
+}
+
+
+/* Section Specific (section-nueva-estrategia) */
+
+#section-nueva-estrategia-form {
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 
@@ -400,7 +456,7 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 footer {
   background-color: #021b2d;
   color: #ffffff;
-  padding: 40px 0;
+  padding: 40px 0px 150px 0px;
   font-size: 12px;
 }
 
@@ -451,7 +507,7 @@ img.logos {
     border: 0;
   }
   .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: #06649D;
+    background-color: #0664AD;
   }
 }
 

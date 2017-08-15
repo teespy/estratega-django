@@ -52,5 +52,5 @@ class EstrategiaTituloForm(forms.ModelForm):
                                 )
         )  
 
-    titulo = forms.CharField(label='Esta es una estrategia para solucionar...', max_length=100)
+    titulo = forms.CharField(label='Esta es una estrategia para...', max_length=80)
 

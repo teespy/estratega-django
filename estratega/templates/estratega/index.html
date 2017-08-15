@@ -1,26 +1,22 @@
-{% extends "base_generic.html" %} 
+{% extends "base_generic.html" %}
 
 {% load staticfiles %}
 
 {% block navbar %}
-    {% include "navbar.html" with navhighlighted="inicio" %}
-{% endblock %}
-
+    {% include "navbar.html" with navhighlighted="inicio" %} 
+{% endblock %} 
 
 {% block content %}
 <section id="section-index-hero">
     <div class="container">
         <h1 class="text-center text-white width-800-nomargin">
-            <span>
-Estratega te ayuda a crear estrategias de incidencia política que abarcan varios
-factores importantes a la hora de incidir en el diseño y la ejecución de políticas
-públicas
+            Estratega te ayuda a crear estrategias de incidencia que toman en cuenta factores cruciales a la hora de influir en el diseño y la
+            ejecución de políticas públicas
 
-<!--
+            <!--
 Reduce los riesgos y aumenta el desempeño de tu equipo al momento de
 incidir en políticas públicas
 -->
-            </span>
         </h1>
     </div>
 </section>
@@ -28,67 +24,54 @@ incidir en políticas públicas
 <section id="section-index-preguntas">
     <div class="container text-center width-800-nomargin">
         <h2 class="text-white">
-Tu organización,
+            Tu organización,
         </h2>
     </div>
 
     <div class="container text-center width-800-nomargin">
         <h3 class="text-white">
-¿Tiene recursos poténtes pero no sabe del todo bién en que sería mejor emplearlos?
+            ¿Tiene recursos poténtes pero no sabe del todo bién en que sería mejor emplearlos?
 
-<!--
+            <!--
 ¿Tienes objetivos de acción claros pero no logras cumplirlos?
 -->
 
         </h3>
         <h3 class="text-white">
-¿Pone a la meta institucional como un factor relevante a la hora de decidir
-en que problemas públicos enfocarse?
+            ¿Pone a la meta institucional como un factor relevante a la hora de decidir en que problemas públicos enfocarse?
 
-<!--
+            <!--
 ¿Tus flujos de comunicación interna y externa trabajan en función de tu meta institucional?
 -->
         </h3>
         <h3 class="text-white">
-¿Quisiera que sus objetivos de acción fueran más claros, definidos bién concebidos? 
+            ¿Quisiera que sus objetivos de acción fueran más claros, definidos y bién concebidos?
 
-<!--
+            <!--
 ¿No logran conectar con los actores sociales con los que te deberías relacionar?
 -->
 
         </h3>
         <h3 class="text-white">
-¿Siente que podría utilizar el presupuesto organizacional de una manera
-mucho más eficiente?
+            ¿Siente que podría utilizar el presupuesto organizacional de una manera mucho más eficiente?
 
-<!--
+            <!--
 ¿Tu presupuesto organizacional es escaso y necesitas optimizarlo de la mejor manera?
 -->
+    </div>
+
+    <div class="container text-center width-800-nomargin">
+        <div class="spacer30"></div>
+        <h2 class="text-white">
+            ¡Tal ves Estratega pueda ayudarlos!
+        </h2>
     </div>
 </section>
 
 <section class="metodologia" id="section-index-metodologia">
     <div class="container">
         <h2 class="text-white text-center">Metodología</h2>
-        <div class="row">
-            <div class="col-md-2 text-center arrow"><img class="" alt="Caracterizar el problema público" src="{% static 'images/m02.svg' %}" />
-                <p class="text-white">Caracterizar el problema público</p>
-            </div>
-            <div class="col-md-2 text-center arrow"><img class="" alt="Definir objetivos" src="{% static 'images/m03.svg' %}" />
-                <p class="text-white">Definir objetivos</p>
-            </div>
-            <div class="col-md-2 text-center arrow"><img class="" alt="Analizar factores externos" src="{% static 'images/m04.svg' %}" />
-                <p class="text-white">Analizar factores externos</p>
-            </div>
-            <div class="col-md-2 text-center arrow"><img class="" alt="Definir resultados intermedios" src="{% static 'images/m05.svg' %}" />
-                <p class="text-white">Definir resultados intermedios</p>
-            </div>
-            <div class="col-md-2 text-center arrow"><img class="" alt="Planificar peticiones" src="{% static 'images/m06.svg' %}" />
-                <p class="text-white">Planificar peticiones</p>
-            </div>
-            <div class="col-md-2 text-center arrow"><img class="" alt="Evaluación monitoreo" src="{% static 'images/m07.svg' %}" />
-                <p class="text-white">Evaluación monitoreo</p>
-            </div>
+        {% include "row_metodologia.html" %}
         </div>
     </div>
 </section>
@@ -130,7 +113,7 @@ mucho más eficiente?
     </div>
 </section>
 
-<section class="organizations" id="usanestratega">
+<section id="section-index-usan-estratega">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -138,7 +121,7 @@ mucho más eficiente?
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="row-logos">
             <div class="col-xs-12 col-sm-6 col-md-2 col-lg-2">
                 <a href="//www.techo.org/paises/chile/" target="_blank"><img class="logos" alt="Logo TECHO" src="{% static 'images/logo-techo.svg' %}" data-pin-nopin="true"></a>
             </div>
