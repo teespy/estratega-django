@@ -8,7 +8,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   color: #575757;
-  background-color: #f3f3f3;
+  background-color: #021b2d;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -17,6 +17,10 @@ body {
   -webkit-animation-duration: 0.1s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-timing-function: linear;
+}
+
+div.full-page {
+  background-color: #f3f3f3;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -47,6 +51,10 @@ img {
 
 input, button, select, textarea {
   color: #7f8c8c;
+}
+
+section.default-p-top {
+  padding-top: 150px;
 }
 
 
@@ -236,8 +244,11 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 
 #section-index-hero {
   background: url("../images/hero.jpg") no-repeat bottom;
-  padding: 150px 0;
   background-size: cover;
+}
+
+#section-index-hero div h1 {
+  padding-bottom: 150px;
 }
 
 
@@ -303,13 +314,6 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 
 .row-metodologia {
   padding-top: 50px;
-}
-
-
-/* Section Specific (section-metodologia-metodologia) */
-
-#section-metodologia-metodologia {
-  padding-top: 150px;
 }
 
 
@@ -379,11 +383,8 @@ ul.dropdown-menu.dropdown-menu-button.thin{
   padding-top: 50px;
 }
 
-/* Section Specific (section-login) */
 
-#section-login {
-  padding-top: 150px;
-}
+/* Section Specific (section-login) */
 
 #section-login h1 {
   margin: 0 auto;
@@ -395,10 +396,6 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 
 
 /* Section Specific (section-nueva-estrategia) */
-
-#section-nueva-estrategia {
-  padding-top: 150px;
-}
 
 #section-nueva-estrategia h1 {
   margin: 0 auto;
@@ -424,16 +421,11 @@ ul.dropdown-menu.dropdown-menu-button.thin{
     padding-top: 30px;
 }
 
-#section-mis-estrategias {
-    background: #E75663;
-}
-
 .form-estrategia div label {
     font-size: 20px;
 }
 
 .item-listado-estrategia {
-    color: white;
     font-size: 30px;
     margin-bottom: 20px;
 }
@@ -454,7 +446,6 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 /* Footer */
 
 footer {
-  background-color: #021b2d;
   color: #ffffff;
   padding: 40px 0px 150px 0px;
   font-size: 12px;

@@ -7,16 +7,29 @@
 {% endblock %} 
 
 {% block content %}
-<section id="section-mis-estrategias">
+<section class="default-p-top" id="section-mis-estrategias">
     <div class="container">
-        <h2 class="text-white text-center p-top-50">Mis Estrategias</h2>
+        <h1 class="text-center width-800-nomargin">Mis Estrategias</h1>
+
+        <div class="row spacer30"></div>
+
         {% if estrategias.count == 0 %}
-        <div class="row item-listado-estrategia">
+        <div class="row">
             <div class="col-sm-12 text-center">
-                ¡Aún no has creado ninguna estrategia!
+                <h2>¡Aún no has creado ninguna estrategia!</h2>
             </div>
         </div>
-        {% endif %} {% for estrategia in estrategias %}
+
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <h3><a href="/estrategias/nueva_estrategia">Crea una acá</h3>
+            </div>
+        </div>
+
+        <div class="row spacer60"></div>
+        {% endif %} 
+        
+        {% for estrategia in estrategias %}
         <div class="row item-listado-estrategia">
             <div class="col-sm-1 ile-img">
                 <img src="{% static 'images/logotrans.png' %}" alt="Logo" />

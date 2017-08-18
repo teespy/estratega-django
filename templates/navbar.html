@@ -20,6 +20,13 @@
                 <li {% if navhighlighted == "mis_estrategias" %} class="active" {% endif %}><a href="/estrategias/mis_estrategias">Mis Estrategias</a></li>
                 <li {% if navhighlighted == "nueva_estrategia" %} class="active" {% endif %}><a href="/estrategias/nueva_estrategia">Nueva Estrategia</a></li>
             </ul>
+
+            {% if user.is_authenticated %}
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="/logout">Salir</a></li>
+            </ul>
+            {% endif %}
+
             
             <!--
             <ul class="nav navbar-nav pull-right">

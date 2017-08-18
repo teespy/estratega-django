@@ -17,20 +17,12 @@ class EstrategiaLoginForm(AuthenticationForm):
 
     def __init__(self, *args, **kwargs):
         super(EstrategiaLoginForm, self).__init__(*args, **kwargs)
+
         self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.form_action = reverse('login')
-        self.helper.form_class='form-login'
         self.helper.layout = Layout(
                                 Field('username', css_class='input-xlarge'),
-                                Field('password', css_class='input-xlarge'),
-                                FormActions(
-                                    Submit('save_changes', 'Ingresar', css_class="btn-primary")
-                                )
+                                Field('password', css_class='input-xlarge')
         )  
-
-    def confirm_login_allowed(self, user):
-        pass
 
 
 class EstrategiaTituloForm(forms.ModelForm):

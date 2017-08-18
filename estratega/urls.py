@@ -22,8 +22,6 @@ from estrategias import views
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^login', views.EstrategaLoginView.as_view(), name='login'),
-    #url(r'^login', auth_views.LoginView.as_view(template_name='estrategias/login.html'), name='login'),
-    #url(r'^login', views.LoginView.as_view(), name='login'),
     url(r'^logout', views.log_out, name='logout'),
     url(r'^metodologia', views.metodologia, name='metodologia'),
     url(r'^estrategias/', include('estrategias.urls', namespace='estrategias')),
