@@ -54,9 +54,12 @@ input, button, select, textarea {
 }
 
 section.default-p-top {
-  padding-top: 150px;
+  padding-top: 120px;
 }
 
+section.mainflow-p-top {
+  padding-top: 50px;
+}
 
 /* Buttons */
 
@@ -410,6 +413,17 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 }
 
 
+/* Section Specific (section-problematica-estrategia) */
+
+#section-problematica-problematica {
+    padding-top: 30px;
+}
+
+#section-problematica-problematica form label {
+    display: none;
+}
+
+
 /* Section Specific (other sections)*/
 
 #section-index-metodologia {
@@ -420,6 +434,8 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 #section-metodologia-info {
     padding-top: 30px;
 }
+
+
 
 .form-estrategia div label {
     font-size: 20px;

@@ -28,21 +28,28 @@ class EstrategiaLoginForm(AuthenticationForm):
 class EstrategiaTituloForm(forms.ModelForm):
     class Meta:
         model = Estrategia
-        exclude = ('dueno',)
-        #fields = '__all__'
+        fields = ('titulo',)
 
     def __init__(self, *args, **kwargs):
         super(EstrategiaTituloForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.form_action = reverse('estrategias:nueva_estrategia')
-        self.helper.form_class='form-estrategia'
         self.helper.layout = Layout(
                                 Field('titulo', css_class='input-xlarge'),
-                                FormActions(
-                                    Submit('save_changes', 'Comenzar!', css_class="btn-primary"), css_class="text-center p-vrt-20"
-                                )
         )  
 
     titulo = forms.CharField(label='Esta es una estrategia para...', max_length=80)
 
+
+class EstrategiaProblematicaForm(forms.ModelForm):
+    class Meta:
+        model = Estrategia
+        fields = ('problematica',)
+
+    def __init__(self, *args, **kwargs):
+        super(EstrategiaProblematicaForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper() 
+        self.helper.layout = Layout(
+                                Field('problematica', css_class='input-xlarge'),
+        )  
+
+    problematica = forms.TextInput()

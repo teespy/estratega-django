@@ -3,19 +3,21 @@ from django.contrib.auth.models import User
 
 
 class Estrategia(models.Model):
-    titulo = models.CharField(max_length=200, default='')
     dueno = models.ForeignKey(User, null=True)
+
+    titulo = models.CharField(max_length=200, default='')
+    problematica = models.TextField(default='')
 
     def __str__(self):
         return self.titulo
 
 
-class Problematica(models.Model):
-    estrategia = models.ForeignKey(Estrategia)
-    texto = models.TextField()
-
-    def __str__(self):
-        return self.texto
+#class Problematica(models.Model):
+#    estrategia = models.ForeignKey(Estrategia)
+#    texto = models.TextField()
+#
+#    def __str__(self):
+#        return self.texto
 
 
 class Causa(models.Model):
