@@ -2,8 +2,6 @@
 
 {% load staticfiles %}
 
-{% load crispy_forms_tags %}
-
 {% block navbar %}
     {% include "navbar.html" with navhighlighted="mis_estrategias" %} 
 {% endblock %} 
@@ -18,7 +16,7 @@
     </div>
 </section>
 
-<section class="flujo-estrategia flujo-estrategia-show" id="section-problematica-problematica">
+<section class="flujo-estrategia flujo-estrategia-edit" id="section-problematica-problematica-edit">
     <div class="container">
         <div class="row">
             <div class="col-md-2 text-center">
@@ -26,25 +24,22 @@
             </div>
             <div class="col-md-2 text-right">
                 <h3>Problemática</h3>
-                <a href="{% url "estrategias:problematica_edit" pk=estrategia.id %}" class="" role="">Editar</a>
             </div>
-            {% if estrategia.has_problematica %}
+
             <div class="col-md-7 col-md-offset-1">
                 <div class="row">
-                    <p>{{estrategia.problematica}}</p>
+                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ut risus vel enim faucibus faucibus non
+                    non nulla. Donec nec dignissim enim. Nam dolor metus, fermentum sit amet purus eu, sodales ullamcorper
+                    nisl. Mauris molestie tortor non neque auctor rutrum. Class aptent taciti sociosqu ad litora torquent
+                    per conubia nostra, per inceptos himenaeos.</p>
                 </div>
 
                 <div class="row spacer30"></div>
 
-                <div class="row pull-right">
-                    
+                <div class="row">
+                    {% include 'estrategias/forms/problematica_form.html' %}
                 </div>
             </div>
-            {% else %}
-            <div class="col-md-7 text-center">
-                <a href="{% url "estrategias:problematica_edit" pk=estrategia.id %}" class="" role="">Defina su problemática</a>
-            </div>
-            {% endif %}
         </div>
         <div class="row spacer60"></div>
     </div>

@@ -9,29 +9,29 @@
 {% endblock %} 
 
 {% block content %}
-<section class="metodologia default-p-top" id="section-problematica-titulo">
+<section class="metodologia default-p-top" id="section-causas-titulo">
     <div class="container">
         <div class="row">
             <h1 class="text-white text-center">Estrategia para: {{ estrategia.titulo }}</h1>
         </div>
-        {% include "estrategias/sections/row_metodologia_flow.html" with highlighted="problematica" %}
+        {% include "estrategias/sections/row_metodologia_flow.html" with highlighted="causas" %}
     </div>
 </section>
 
-<section class="flujo-estrategia flujo-estrategia-show" id="section-problematica-problematica">
+<section class="flujo-estrategia flujo-estrategia-show" id="section-causas-causas">
     <div class="container">
         <div class="row">
             <div class="col-md-2 text-center">
-                <img alt="Problematica" src="{% static 'images/m02.svg' %}">
+                <img alt="Causas" src="{% static 'images/m02.svg' %}">
             </div>
             <div class="col-md-2 text-right">
-                <h3>Problemática</h3>
-                <a href="{% url "estrategias:problematica_edit" pk=estrategia.id %}" class="" role="">Editar</a>
+                <h3>Causas</h3>
+                <a href="{% url "estrategias:causas_edit" pk=estrategia.id %}" class="" role="">Editar</a>
             </div>
-            {% if estrategia.has_problematica %}
+            {% if estrategia.has_causas %}
             <div class="col-md-7 col-md-offset-1">
                 <div class="row">
-                    <p>{{estrategia.problematica}}</p>
+                    <p>Aqui las causas....</p>
                 </div>
 
                 <div class="row spacer30"></div>
@@ -42,7 +42,7 @@
             </div>
             {% else %}
             <div class="col-md-7 text-center">
-                <a href="{% url "estrategias:problematica_edit" pk=estrategia.id %}" class="" role="">Defina su problemática</a>
+                <a href="{% url "estrategias:causas_edit" pk=estrategia.id %}" class="" role="">Defina las causas</a>
             </div>
             {% endif %}
         </div>

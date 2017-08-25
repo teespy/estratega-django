@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<div class="row row-metodologia row-metodologia-flow">
+    <div class="col-md-6 nopadding">
+        <div class="col-md-3 text-center arrow {% if highlighted == 'problematica' %} highlighted {% elif not estrategia.has_problematica %} dimmed {% endif %}">
+            <img alt="Problemática" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Problemática</p>
+        </div>
+        <div class="col-md-3 text-center arrow {% if highlighted == 'causas' %} highlighted {% elif not estrategia.has_causas %} dimmed {% endif %}">
+            <img alt="Causas" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Causas</p>
+        </div>
+        <div class="col-md-3 text-center arrow {% if highlighted == 'solucionpolitica' %} highlighted {% elif not estrategia.has_solucionpolitica %} dimmed {% endif %}">
+            <img alt="Solución Política" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Solución Política</p>
+        </div>
+        <div class="col-md-3 text-center arrow {% if highlighted == 'objetivos' %} highlighted {% elif not estrategia.has_objetivos %} dimmed {% endif %}">
+            <img alt="Objetivos" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Objetivos</p>
+        </div>
+    </div>
+    <div class="col-md-6 nopadding">
+        <div class="col-md-3 text-center arrow {% if highlighted == 'resultadosintermedios' %} highlighted {% elif not estrategia.has_resultadosintermedios %} dimmed {% endif %}">
+            <img alt="Resultados Intermedios" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Resultados Intermedios</p>
+        </div>
+        <div class="col-md-3 text-center arrow {% if highlighted == 'barreras' %} highlighted {% elif not estrategia.has_barreras %} dimmed {% endif %}">
+            <img alt="Barreras" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Barreras</p>
+        </div>
+        <div class="col-md-3 text-center arrow {% if highlighted == 'factoreshabilitantes' %} highlighted {% elif not estrategia.has_factoreshabilitantes %} dimmed {% endif %}">
+            <img alt="Factores Habilitantes" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Factores Habilitantes</p>
+        </div>
+        <div class="col-md-3 text-center arrow {% if highlighted == 'actoresrelevantes' %} highlighted {% elif not estrategia.has_actoresrelevantes %} dimmed {% endif %}">
+            <img alt="Actores Relevantes" src="{% static 'images/m02.svg' %}">
+            <p class="text-white">Actores Relevantes</p>
+        </div>
+    </div>
+</div>

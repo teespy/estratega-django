@@ -53,3 +53,18 @@ class EstrategiaProblematicaForm(forms.ModelForm):
         )  
 
     problematica = forms.TextInput()
+
+
+class EstrategiaCausaForm(forms.ModelForm):
+    class Meta:
+        model = Estrategia
+        fields = ('causas',)
+
+    def __init__(self, *args, **kwargs):
+        super(EstrategiaCausaForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper() 
+        self.helper.layout = Layout(
+                                Field('causas', css_class='input-xlarge'),
+        )  
+
+    problematica = forms.TextInput()

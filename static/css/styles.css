@@ -45,7 +45,7 @@ h3 {
 }
 
 img {
-    display: block;
+/*     display: block; */
     margin: 0 auto;
 }
 
@@ -243,6 +243,38 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 */
 
 
+/* Flujo Estrategia (edit) */
+
+section.flujo-estrategia-edit h3 {
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+}
+
+section.flujo-estrategia-edit p {
+  padding: 0;
+}
+
+
+/* Flujo Estrategia (show) */
+
+section.flujo-estrategia-show h3 {
+  margin: 0;
+  padding: 0;
+}
+
+section.flujo-estrategia-show p {
+  padding: 0;
+}
+
+
+/* Flujo Estrategia (pre) */
+
+div.row-item-metodologia img.check-mark {
+  margin-top: 25px;
+  width: 60px;
+}
+
 /* Section Specific (section-index-hero)*/
 
 #section-index-hero {
@@ -319,11 +351,26 @@ ul.dropdown-menu.dropdown-menu-button.thin{
   padding-top: 50px;
 }
 
+.row-metodologia-flow div.dimmed img {
+  opacity: .5;
+}
+
+.row-metodologia-flow div.highlighted img {
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+
+.row-metodologia-flow div.highlighted p {
+  font-weight: bold;
+}
+
 
 /* Section Specific (section-metodologia-info) */
 
 #section-metodologia-info h3 {
   font-weight: 500;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -413,13 +460,38 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 }
 
 
-/* Section Specific (section-problematica-estrategia) */
+/* Section Specific (section-problematica-problematica) */
 
 #section-problematica-problematica {
     padding-top: 30px;
 }
 
-#section-problematica-problematica form label {
+
+/* Section Specific (section-problematica-problematica-edit) */
+
+#section-problematica-problematica-edit {
+    padding-top: 30px;
+}
+
+#section-problematica-problematica-edit form label {
+    display: none;
+}
+
+
+/* Section Specific (section-causas-causas) */
+
+#section-causas-causas {
+    padding-top: 30px;
+}
+
+
+/* Section Specific (section-problematica-problematica-edit) */
+
+#section-causas-causas-edit {
+    padding-top: 30px;
+}
+
+#section-causas-causas-edit form label {
     display: none;
 }
 
@@ -463,7 +535,7 @@ ul.dropdown-menu.dropdown-menu-button.thin{
 
 footer {
   color: #ffffff;
-  padding: 40px 0px 150px 0px;
+  padding: 40px 0px 70px 0px;
   font-size: 12px;
 }
 
