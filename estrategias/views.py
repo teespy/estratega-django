@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 
-from .models import Estrategia
+from .models import Estrategia, Objetivo
 from .forms import EstrategiaTituloForm,\
                    EstrategiaLoginForm,\
                    EstrategiaProblematicaForm,\
@@ -59,9 +59,10 @@ class NuevaEstrategiaView(LoginRequiredMixin, generic.edit.FormView):
 
 # Problematica
 
-class ProblematicaView(generic.DetailView):
+class ProblematicaView(LoginRequiredMixin, generic.DetailView):
     model = Estrategia
     template_name = 'estrategias/problematica.html'
+    login_url = '/login'
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -76,6 +77,7 @@ class ProblematicaEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin,
     form_class = EstrategiaProblematicaForm
     template_name = 'estrategias/problematica_edit.html'
     model = Estrategia
+    login_url = '/login'
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -112,14 +114,16 @@ class ProblematicaEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin,
 
 # Causas
 
-class CausasPreView(generic.DetailView):
+class CausasPreView(LoginRequiredMixin, generic.DetailView):
     model = Estrategia
     template_name = 'estrategias/causas_pre.html'
+    login_url = '/login'
 
 
-class CausasView(generic.DetailView):
+class CausasView(LoginRequiredMixin, generic.DetailView):
     model = Estrategia
     template_name = 'estrategias/causas.html'
+    login_url = '/login'
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -134,6 +138,7 @@ class CausasEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, gener
     form_class = EstrategiaCausasForm
     template_name = 'estrategias/causas_edit.html'
     model = Estrategia
+    login_url = '/login'
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -159,7 +164,7 @@ class CausasEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, gener
         if 'empezovacio' in self.request.POST:
             return redirect(reverse('estrategias:solucionpolitica_pre', kwargs={'pk': self.object.pk}))
         else:
-            return redirect(reverse('estrategias:solucionpolitica', kwargs={'pk': self.object.pk}))
+            return redirect(reverse('estrategias:causas', kwargs={'pk': self.object.pk}))
 
     def get_initial(self):
         initial = super(CausasEditView, self).get_initial()
@@ -170,14 +175,16 @@ class CausasEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, gener
 
 # Solución Política
 
-class SolucionPoliticaPreView(generic.DetailView):
+class SolucionPoliticaPreView(LoginRequiredMixin, generic.DetailView):
     model = Estrategia
     template_name = 'estrategias/solucionpolitica_pre.html'
+    login_url = '/login'
 
 
-class SolucionPoliticaView(generic.DetailView):
+class SolucionPoliticaView(LoginRequiredMixin, generic.DetailView):
     model = Estrategia
     template_name = 'estrategias/solucionpolitica.html'
+    login_url = '/login'
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -192,6 +199,7 @@ class SolucionPoliticaEditView(LoginRequiredMixin, generic.detail.SingleObjectMi
     form_class = EstrategiaSolucionPoliticaForm
     template_name = 'estrategias/solucionpolitica_edit.html'
     model = Estrategia
+    login_url = '/login'
 
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -215,7 +223,7 @@ class SolucionPoliticaEditView(LoginRequiredMixin, generic.detail.SingleObjectMi
         estrategia.save()
 
         if 'empezovacio' in self.request.POST:
-            return redirect(reverse('estrategias:solucionpolitica_pre', kwargs={'pk': self.object.pk}))
+            return redirect(reverse('estrategias:objetivos_pre', kwargs={'pk': self.object.pk}))
         else:
             return redirect(reverse('estrategias:solucionpolitica', kwargs={'pk': self.object.pk}))
 
@@ -224,3 +232,50 @@ class SolucionPoliticaEditView(LoginRequiredMixin, generic.detail.SingleObjectMi
         initial['solucionpolitica'] = self.object.solucionpolitica
 
         return initial
+
+
+# Objetivos
+# TODO: Finalizar estas vistas, que aun no estan listas
+
+class ObjetivosPreView(LoginRequiredMixin, generic.DetailView):
+    model = Estrategia
+    template_name = 'estrategias/objetivos_pre.html'
+    login_url = '/login'
+
+
+class ObjetivosNuevoView(LoginRequiredMixin, generic.DetailView):
+    model = Estrategia
+    template_name = 'estrategias/objetivos_detail.html'
+
+
+class ObjetivosView(LoginRequiredMixin, generic.ListView):
+    model = Objetivo
+    template_name = 'estrategias/objetivos_list.html'
+    context_object_name = 'objetivos'
+    login_url = '/login'
+
+    def get_queryset(self):
+        qs = super(ObjetivosView, self).get_queryset()
+        return qs.filter(estrategia=self.objectt.pk)
+
+    def post(self, request, *args, **kwargs):
+        if len(self.get_queryset()) < 1:
+            return redirect('/estrategias/%s/objetivos/nuevo' % estrategia.id)
+        else:
+            return super(ObjetivosView, self).post(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        if len(self.get_queryset()) < 1:
+            return redirect('/estrategias/%s/objetivos/nuevo' % estrategia.id)
+        else:
+            return super(ObjetivosView, self).post(request, *args, **kwargs)
+
+
+class ObjetivosDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Objetivo
+    template_name = 'estrategias/objetivos_detail.html'
+
+
+class ObjetivosDetailEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, generic.edit.FormView):
+    model = Objetivo
+    template_name = 'estrategias/objetivos_edit.html'

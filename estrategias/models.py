@@ -4,18 +4,10 @@ from django.contrib.auth.models import User
 
 class Estrategia(models.Model):
     dueno = models.ForeignKey(User, null=True)
-
     titulo = models.CharField(max_length=200, default='')
-
-    # problematica
     problematica = models.TextField(default='')
-
-    # causas
     causas = models.TextField(default='')
-
-    # solucionpolitica
     solucionpolitica = models.TextField(default='')
-
 
     def __str__(self):
         return self.titulo
@@ -50,67 +42,40 @@ class Estrategia(models.Model):
     def has_actoresrelevantes(self):
         return False
 
+    def me_next(self):
+        if not self.has_problematica():
+            me_next = 'problematica'
+        elif not self.has_causas():
+            me_next = 'causas'
+        elif not self.has_solucionpolitica():
+            me_next = 'solucionpolitica'
+        elif not self.has_objetivos():
+            me_next = 'objetivos'
+        elif not self.has_solucionpolitica():
+            me_next = 'solucionpolitica'
+        elif not self.has_objetivos():
+            me_next = 'objetivos'
+        elif not self.has_resultadosintermedios():
+            me_next = 'resultadosintermedios'
+        elif not self.has_factoreshabilitantes():
+            me_next = 'factoreshabilitantes'
+        elif not self.has_barreras():
+            me_next = 'barreras'
+        elif not self.has_actoresrelevantes():
+            me_next = 'actoresrelevantes'
+        else:
+            me_next = False
 
-#class Problematica(models.Model):
-#    estrategia = models.ForeignKey(Estrategia)
-#    texto = models.TextField()
-#
-#    def __str__(self):
-#        return self.texto
-
-
-#class Causa(models.Model):
-#    estrategia = models.ForeignKey(Estrategia)
-#    texto = models.TextField()
-#
-#    def __str__(self):
-#        return self.texto
-
-
-#class SolucionPolitica(models.Model):
-#    estrategia = models.ForeignKey(Estrategia)
-#    texto = models.TextField()
-#
-#    def __str__(self):
-#        return self.texto
+        return me_next
 
 
 class Objetivo(models.Model):
     estrategia = models.ForeignKey(Estrategia)
-    texto = models.TextField()
+    objetivo = models.TextField()
+    resultadosintermedios = models.TextField()
+    factoreshabilitantes = models.TextField()
+    barreras = models.TextField()
+    barreras = models.TextField()
 
     def __str__(self):
-        return self.texto
-
-
-class ResultadoIntermedio(models.Model):
-    objetivo = models.ForeignKey(Objetivo)
-    texto = models.TextField()
-
-    def __str__(self):
-        return self.texto
-
-
-class FactorHabilitante(models.Model):
-    objetivo = models.ForeignKey(Objetivo)
-    texto = models.TextField()
-
-    def __str__(self):
-        return self.texto
-
-
-class Barrera(models.Model):
-    objetivo = models.ForeignKey(Objetivo)
-    texto = models.TextField()
-
-    def __str__(self):
-        return self.texto
-
-
-class ActorRelevante(models.Model):
-    objetivo = models.ForeignKey(Objetivo)
-    nombre = models.CharField(max_length=200)
-    justificacion = models.TextField()
-
-    def __str__(self):
-        return self.nombre
+        return self.objetivo
