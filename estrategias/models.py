@@ -7,12 +7,14 @@ class Estrategia(models.Model):
 
     titulo = models.CharField(max_length=200, default='')
 
-    # problematica es una sola
+    # problematica
     problematica = models.TextField(default='')
 
-    # causas pueden servarias, asi que se serializan en JSON
-    # ver https://stackoverflow.com/questions/1110153/what-is-the-most-efficent-way-to-store-a-list-in-the-django-models
+    # causas
     causas = models.TextField(default='')
+
+    # solucionpolitica
+    solucionpolitica = models.TextField(default='')
 
 
     def __str__(self):
@@ -25,7 +27,10 @@ class Estrategia(models.Model):
             return True
 
     def has_causas(self):
-        return False
+        if self.causas == '':
+            return False
+        else:
+            return True
 
     def has_solucionpolitica(self):
         return False
@@ -54,20 +59,20 @@ class Estrategia(models.Model):
 #        return self.texto
 
 
-class Causa(models.Model):
-    estrategia = models.ForeignKey(Estrategia)
-    texto = models.TextField()
+#class Causa(models.Model):
+#    estrategia = models.ForeignKey(Estrategia)
+#    texto = models.TextField()
+#
+#    def __str__(self):
+#        return self.texto
 
-    def __str__(self):
-        return self.texto
 
-
-class SolucionPolitica(models.Model):
-    estrategia = models.ForeignKey(Estrategia)
-    texto = models.TextField()
-
-    def __str__(self):
-        return self.texto
+#class SolucionPolitica(models.Model):
+#    estrategia = models.ForeignKey(Estrategia)
+#    texto = models.TextField()
+#
+#    def __str__(self):
+#        return self.texto
 
 
 class Objetivo(models.Model):

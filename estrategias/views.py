@@ -6,7 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 
 from .models import Estrategia
-from .forms import EstrategiaTituloForm, EstrategiaLoginForm, EstrategiaProblematicaForm
+from .forms import EstrategiaTituloForm,\
+                   EstrategiaLoginForm,\
+                   EstrategiaProblematicaForm,\
+                   EstrategiaCausasForm,\
+                   EstrategiaSolucionPoliticaForm
 
 
 def index(request):
@@ -54,8 +58,6 @@ class NuevaEstrategiaView(LoginRequiredMixin, generic.edit.FormView):
 
 
 # Problematica
-# La solución a tres clases de este y los siguientes grupos de vistas los tomé de
-# https://docs.djangoproject.com/en/1.11/topics/class-based-views/mixins/#using-formmixin-with-detailview
 
 class ProblematicaView(generic.DetailView):
     model = Estrategia
@@ -68,9 +70,6 @@ class ProblematicaView(generic.DetailView):
             return redirect('/estrategias/%s/problematica/edit' % self.object.id)
         else:
             return super(ProblematicaView, self).get(request, *args, **kwargs)
-
-    #def post(self, request, *args, **kwargs):
-    #    return ProblematicaEditView.as_view()
 
 
 class ProblematicaEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, generic.edit.FormView):
@@ -122,9 +121,17 @@ class CausasView(generic.DetailView):
     model = Estrategia
     template_name = 'estrategias/causas.html'
 
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        if self.object.causas == '':
+            return redirect('/estrategias/%s/causas/edit' % self.object.id)
+        else:
+            return super(CausasView, self).get(request, *args, **kwargs)
+
 
 class CausasEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, generic.edit.FormView):
-    form_class = EstrategiaProblematicaForm
+    form_class = EstrategiaCausasForm
     template_name = 'estrategias/causas_edit.html'
     model = Estrategia
 
@@ -135,3 +142,85 @@ class CausasEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, gener
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super(CausasEditView, self).post(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(CausasEditView, self).get_context_data(**kwargs)
+
+        if self.object.causas == "":
+            context['empezovacio'] = True
+        
+        return context
+
+    def form_valid(self, form):
+        estrategia = self.object
+        estrategia.causas = form.instance.causas
+        estrategia.save()
+
+        if 'empezovacio' in self.request.POST:
+            return redirect(reverse('estrategias:solucionpolitica_pre', kwargs={'pk': self.object.pk}))
+        else:
+            return redirect(reverse('estrategias:solucionpolitica', kwargs={'pk': self.object.pk}))
+
+    def get_initial(self):
+        initial = super(CausasEditView, self).get_initial()
+        initial['causas'] = self.object.causas
+
+        return initial
+
+
+# Solución Política
+
+class SolucionPoliticaPreView(generic.DetailView):
+    model = Estrategia
+    template_name = 'estrategias/solucionpolitica_pre.html'
+
+
+class SolucionPoliticaView(generic.DetailView):
+    model = Estrategia
+    template_name = 'estrategias/solucionpolitica.html'
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        if self.object.solucionpolitica == '':
+            return redirect('/estrategias/%s/solucionpolitica/edit' % self.object.id)
+        else:
+            return super(SolucionPoliticaView, self).get(request, *args, **kwargs)
+
+
+class SolucionPoliticaEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, generic.edit.FormView):
+    form_class = EstrategiaSolucionPoliticaForm
+    template_name = 'estrategias/solucionpolitica_edit.html'
+    model = Estrategia
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(SolucionPoliticaEditView, self).post(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        return super(SolucionPoliticaEditView, self).post(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(SolucionPoliticaEditView, self).get_context_data(**kwargs)
+
+        if self.object.solucionpolitica == "":
+            context['empezovacio'] = True
+        
+        return context
+
+    def form_valid(self, form):
+        estrategia = self.object
+        estrategia.solucionpolitica = form.instance.solucionpolitica
+        estrategia.save()
+
+        if 'empezovacio' in self.request.POST:
+            return redirect(reverse('estrategias:solucionpolitica_pre', kwargs={'pk': self.object.pk}))
+        else:
+            return redirect(reverse('estrategias:solucionpolitica', kwargs={'pk': self.object.pk}))
+
+    def get_initial(self):
+        initial = super(SolucionPoliticaEditView, self).get_initial()
+        initial['solucionpolitica'] = self.object.solucionpolitica
+
+        return initial

@@ -55,16 +55,31 @@ class EstrategiaProblematicaForm(forms.ModelForm):
     problematica = forms.TextInput()
 
 
-class EstrategiaCausaForm(forms.ModelForm):
+class EstrategiaCausasForm(forms.ModelForm):
     class Meta:
         model = Estrategia
         fields = ('causas',)
 
     def __init__(self, *args, **kwargs):
-        super(EstrategiaCausaForm, self).__init__(*args, **kwargs)
+        super(EstrategiaCausasForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper() 
         self.helper.layout = Layout(
                                 Field('causas', css_class='input-xlarge'),
         )  
 
-    problematica = forms.TextInput()
+    causas = forms.TextInput()
+
+
+class EstrategiaSolucionPoliticaForm(forms.ModelForm):
+    class Meta:
+        model = Estrategia
+        fields = ('solucionpolitica',)
+
+    def __init__(self, *args, **kwargs):
+        super(EstrategiaSolucionPoliticaForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper() 
+        self.helper.layout = Layout(
+                                Field('solucionpolitica', css_class='input-xlarge'),
+        )  
+
+    solucionpolitica = forms.TextInput()
