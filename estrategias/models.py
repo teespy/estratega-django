@@ -8,7 +8,7 @@ class Estrategia(models.Model):
     problematica = models.TextField(default='')
     causas = models.TextField(default='')
     solucionpolitica = models.TextField(default='')
-    
+    objetivos = models.ManyToManyField('Objetivo')
 
     def __str__(self):
         return self.titulo
@@ -79,9 +79,12 @@ class Estrategia(models.Model):
 
         return me_next
 
+    def primerobjetivo(self):
+        primerobjetivo = Objetivo.objects.get()
+
 
 class Objetivo(models.Model):
-    estrategia = models.ForeignKey(Estrategia)
+    #estrategia = models.ForeignKey(Estrategia)
     objetivo = models.TextField()
     resultadosintermedios = models.TextField()
     factoreshabilitantes = models.TextField()

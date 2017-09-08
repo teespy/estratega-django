@@ -55,9 +55,14 @@ class NuevaEstrategiaView(LoginRequiredMixin, generic.edit.FormView):
     def form_valid(self, form):
         # se crea la estrategia      
         estrategia = Estrategia.objects.create(titulo=form.instance.titulo, dueno=self.request.user)
+        estrategia.save()
 
-        # se crea tambien un primer objetivo en esta etapa (para que no fallen ciertos forms mas adelante)
-        
+        # se crea tambien un primer objetivo en esta etapa,
+        # para que no fallen ciertos forms mas adelante
+        objetivo = Objetivo.objects.create()
+        objetivo.save()
+        estrategia.objetivos.add(objetivo)
+        estrategia.save()
 
         return redirect('/estrategias/%s/problematica' % estrategia.id)
 
