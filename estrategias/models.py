@@ -8,6 +8,7 @@ class Estrategia(models.Model):
     problematica = models.TextField(default='')
     causas = models.TextField(default='')
     solucionpolitica = models.TextField(default='')
+    
 
     def __str__(self):
         return self.titulo
@@ -25,7 +26,10 @@ class Estrategia(models.Model):
             return True
 
     def has_solucionpolitica(self):
-        return False
+        if self.solucionpolitica == '':
+            return False
+        else:
+            return True
 
     def has_objetivos(self):
         return False
@@ -42,6 +46,13 @@ class Estrategia(models.Model):
     def has_actoresrelevantes(self):
         return False
 
+    # Este metodo chequea el contenido de la estrategia y
+    # devuelve un texto que indica que parte de la estrategia
+    # es la que debiera ser completada en el siguiente paso.
+    #
+    # El metodo es usado por el menu de arriba del flujo principal
+    # (el flujo que se usa para crear estrategias) para saber que 
+    # partes del menu habilitar en cada etapa. 
     def me_next(self):
         if not self.has_problematica():
             me_next = 'problematica'
@@ -74,7 +85,6 @@ class Objetivo(models.Model):
     objetivo = models.TextField()
     resultadosintermedios = models.TextField()
     factoreshabilitantes = models.TextField()
-    barreras = models.TextField()
     barreras = models.TextField()
 
     def __str__(self):
