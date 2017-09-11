@@ -1,3 +1,4 @@
+# coding=utf-8
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
 from django.views import generic, View
@@ -52,8 +53,18 @@ class NuevaEstrategiaView(LoginRequiredMixin, generic.edit.FormView):
     success_url = '/estrategias/nueva_estrategia'
     login_url = '/login'
 
-    def form_valid(self, form):      
+    def form_valid(self, form):
+        # se crea la estrategia
         estrategia = Estrategia.objects.create(titulo=form.instance.titulo, dueno=self.request.user)
+        estrategia.save()
+
+        # se crea tambien un primer objetivo en esta etapa,
+        # para que no fallen ciertos forms mas adelante
+        objetivo = Objetivo.objects.create()
+        objetivo.save()
+        estrategia.objetivos.add(objetivo)
+        estrategia.save()
+
         return redirect('/estrategias/%s/problematica' % estrategia.id)
 
 
@@ -92,7 +103,7 @@ class ProblematicaEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin,
 
         if self.object.problematica == "":
             context['empezovacio'] = True
-        
+
         return context
 
     def form_valid(self, form):
@@ -153,7 +164,7 @@ class CausasEditView(LoginRequiredMixin, generic.detail.SingleObjectMixin, gener
 
         if self.object.causas == "":
             context['empezovacio'] = True
-        
+
         return context
 
     def form_valid(self, form):
@@ -214,7 +225,7 @@ class SolucionPoliticaEditView(LoginRequiredMixin, generic.detail.SingleObjectMi
 
         if self.object.solucionpolitica == "":
             context['empezovacio'] = True
-        
+
         return context
 
     def form_valid(self, form):
